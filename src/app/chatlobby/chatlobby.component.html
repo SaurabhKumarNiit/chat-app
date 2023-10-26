@@ -1,0 +1,32 @@
+<div class="container mt-5 mb-5">
+    <h1 style="text-align: center;">Chat-App</h1>
+
+    <div class="row">
+
+        <h3>Chat With User</h3>
+
+        <div class="col-lg-3" style="display: flex;" *ngFor="let fd of filterCategory">
+           
+
+            <div class="foodbox mt-4 mb-4"  >
+              
+                <p>{{fd.message}}</p>              
+            
+            </div>
+        </div>
+
+        
+        <div>
+            <form #form="ngForm" (ngSubmit)="sendMessage(form)" class="contact-form">
+            
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" #message="ngModel" required [(ngModel)]="formData.message" [class.is-invalid]="message.invalid && message.touched"></textarea>
+                <small *ngIf=" message.touched && message.invalid" class="text-danger">required field *</small>
+            
+                <button type="submit">Send Message</button>
+              </form>
+        </div>
+
+    </div>
+   
+</div>
